@@ -1,0 +1,679 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Init Cloud 팀</title><meta content="https://www.initcloud.works/introduce/static/landing.png" property="og:image"/><style>
+	/* cspell:disable-file */
+	/* webkit printing magic: print all background colors */
+	html {
+		-webkit-print-color-adjust: exact;
+	}
+	* {
+		box-sizing: border-box;
+		-webkit-print-color-adjust: exact;
+	}
+	
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	@media only screen {
+		body {
+			margin: 2em auto;
+			max-width: 900px;
+			color: rgb(55, 53, 47);
+		}
+	}
+	
+	body {
+		line-height: 1.5;
+		white-space: pre-wrap;
+	}
+	
+	a,
+	a.visited {
+		color: inherit;
+		text-decoration: underline;
+	}
+	
+	.pdf-relative-link-path {
+		font-size: 80%;
+		color: #444;
+	}
+	
+	h1,
+	h2,
+	h3 {
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+	
+	.page-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-top: 0;
+		margin-bottom: 0.75em;
+	}
+	
+	h1 {
+		font-size: 1.875rem;
+		margin-top: 1.875rem;
+	}
+	
+	h2 {
+		font-size: 1.5rem;
+		margin-top: 1.5rem;
+	}
+	
+	h3 {
+		font-size: 1.25rem;
+		margin-top: 1.25rem;
+	}
+	
+	.source {
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		padding: 1.5em;
+		word-break: break-all;
+	}
+	
+	.callout {
+		border-radius: 3px;
+		padding: 1rem;
+	}
+	
+	figure {
+		margin: 1.25em 0;
+		page-break-inside: avoid;
+	}
+	
+	figcaption {
+		opacity: 0.5;
+		font-size: 85%;
+		margin-top: 0.5em;
+	}
+	
+	mark {
+		background-color: transparent;
+	}
+	
+	.indented {
+		padding-left: 1.5em;
+	}
+	
+	hr {
+		background: transparent;
+		display: block;
+		width: 100%;
+		height: 1px;
+		visibility: visible;
+		border: none;
+		border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+	}
+	
+	img {
+		max-width: 100%;
+	}
+	
+	@media only print {
+		img {
+			max-height: 100vh;
+			object-fit: contain;
+		}
+	}
+	
+	@page {
+		margin: 1in;
+	}
+	
+	.collection-content {
+		font-size: 0.875rem;
+	}
+	
+	.column-list {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.column {
+		padding: 0 1em;
+	}
+	
+	.column:first-child {
+		padding-left: 0;
+	}
+	
+	.column:last-child {
+		padding-right: 0;
+	}
+	
+	.table_of_contents-item {
+		display: block;
+		font-size: 0.875rem;
+		line-height: 1.3;
+		padding: 0.125rem;
+	}
+	
+	.table_of_contents-indent-1 {
+		margin-left: 1.5rem;
+	}
+	
+	.table_of_contents-indent-2 {
+		margin-left: 3rem;
+	}
+	
+	.table_of_contents-indent-3 {
+		margin-left: 4.5rem;
+	}
+	
+	.table_of_contents-link {
+		text-decoration: none;
+		opacity: 0.7;
+		border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+	}
+	
+	table,
+	th,
+	td {
+		border: 1px solid rgba(55, 53, 47, 0.09);
+		border-collapse: collapse;
+	}
+	
+	table {
+		border-left: none;
+		border-right: none;
+	}
+	
+	th,
+	td {
+		font-weight: normal;
+		padding: 0.25em 0.5em;
+		line-height: 1.5;
+		min-height: 1.5em;
+		text-align: left;
+	}
+	
+	th {
+		color: rgba(55, 53, 47, 0.6);
+	}
+	
+	ol,
+	ul {
+		margin: 0;
+		margin-block-start: 0.6em;
+		margin-block-end: 0.6em;
+	}
+	
+	li > ol:first-child,
+	li > ul:first-child {
+		margin-block-start: 0.6em;
+	}
+	
+	ul > li {
+		list-style: disc;
+	}
+	
+	ul.to-do-list {
+		text-indent: -1.7em;
+	}
+	
+	ul.to-do-list > li {
+		list-style: none;
+	}
+	
+	.to-do-children-checked {
+		text-decoration: line-through;
+		opacity: 0.375;
+	}
+	
+	ul.toggle > li {
+		list-style: none;
+	}
+	
+	ul {
+		padding-inline-start: 1.7em;
+	}
+	
+	ul > li {
+		padding-left: 0.1em;
+	}
+	
+	ol {
+		padding-inline-start: 1.6em;
+	}
+	
+	ol > li {
+		padding-left: 0.2em;
+	}
+	
+	.mono ol {
+		padding-inline-start: 2em;
+	}
+	
+	.mono ol > li {
+		text-indent: -0.4em;
+	}
+	
+	.toggle {
+		padding-inline-start: 0em;
+		list-style-type: none;
+	}
+	
+	/* Indent toggle children */
+	.toggle > li > details {
+		padding-left: 1.7em;
+	}
+	
+	.toggle > li > details > summary {
+		margin-left: -1.1em;
+	}
+	
+	.selected-value {
+		display: inline-block;
+		padding: 0 0.5em;
+		background: rgba(206, 205, 202, 0.5);
+		border-radius: 3px;
+		margin-right: 0.5em;
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+		white-space: nowrap;
+	}
+	
+	.collection-title {
+		display: inline-block;
+		margin-right: 1em;
+	}
+	
+	.simple-table {
+		margin-top: 1em;
+		font-size: 0.875rem;
+		empty-cells: show;
+	}
+	.simple-table td {
+		height: 29px;
+		min-width: 120px;
+	}
+	
+	.simple-table th {
+		height: 29px;
+		min-width: 120px;
+	}
+	
+	.simple-table-header-color {
+		background: rgb(247, 246, 243);
+		color: black;
+	}
+	.simple-table-header {
+		font-weight: 500;
+	}
+	
+	time {
+		opacity: 0.5;
+	}
+	
+	.icon {
+		display: inline-block;
+		max-width: 1.2em;
+		max-height: 1.2em;
+		text-decoration: none;
+		vertical-align: text-bottom;
+		margin-right: 0.5em;
+	}
+	
+	img.icon {
+		border-radius: 3px;
+	}
+	
+	.user-icon {
+		width: 1.5em;
+		height: 1.5em;
+		border-radius: 100%;
+		margin-right: 0.5rem;
+	}
+	
+	.user-icon-inner {
+		font-size: 0.8em;
+	}
+	
+	.text-icon {
+		border: 1px solid #000;
+		text-align: center;
+	}
+	
+	.page-cover-image {
+		display: block;
+		object-fit: cover;
+		width: 100%;
+		max-height: 30vh;
+	}
+	
+	.page-header-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+	
+	.page-header-icon-with-cover {
+		margin-top: -0.72em;
+		margin-left: 0.07em;
+	}
+	
+	.page-header-icon img {
+		border-radius: 3px;
+	}
+	
+	.link-to-page {
+		margin: 1em 0;
+		padding: 0;
+		border: none;
+		font-weight: 500;
+	}
+	
+	p > .user {
+		opacity: 0.5;
+	}
+	
+	td > .user,
+	td > time {
+		white-space: nowrap;
+	}
+	
+	input[type="checkbox"] {
+		transform: scale(1.5);
+		margin-right: 0.6em;
+		vertical-align: middle;
+	}
+	
+	p {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	
+	.image {
+		border: none;
+		margin: 1.5em 0;
+		padding: 0;
+		border-radius: 0;
+		text-align: center;
+	}
+	
+	.code,
+	code {
+		background: rgba(135, 131, 120, 0.15);
+		border-radius: 3px;
+		padding: 0.2em 0.4em;
+		border-radius: 3px;
+		font-size: 85%;
+		tab-size: 2;
+	}
+	
+	code {
+		color: #eb5757;
+	}
+	
+	.code {
+		padding: 1.5em 1em;
+	}
+	
+	.code-wrap {
+		white-space: pre-wrap;
+		word-break: break-all;
+	}
+	
+	.code > code {
+		background: none;
+		padding: 0;
+		font-size: 100%;
+		color: inherit;
+	}
+	
+	blockquote {
+		font-size: 1.25em;
+		margin: 1em 0;
+		padding-left: 1em;
+		border-left: 3px solid rgb(55, 53, 47);
+	}
+	
+	.bookmark {
+		text-decoration: none;
+		max-height: 8em;
+		padding: 0;
+		display: flex;
+		width: 100%;
+		align-items: stretch;
+	}
+	
+	.bookmark-title {
+		font-size: 0.85em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 1.75em;
+		white-space: nowrap;
+	}
+	
+	.bookmark-text {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.bookmark-info {
+		flex: 4 1 180px;
+		padding: 12px 14px 14px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	.bookmark-image {
+		width: 33%;
+		flex: 1 1 180px;
+		display: block;
+		position: relative;
+		object-fit: cover;
+		border-radius: 1px;
+	}
+	
+	.bookmark-description {
+		color: rgba(55, 53, 47, 0.6);
+		font-size: 0.75em;
+		overflow: hidden;
+		max-height: 4.5em;
+		word-break: break-word;
+	}
+	
+	.bookmark-href {
+		font-size: 0.75em;
+		margin-top: 0.25em;
+	}
+	
+	.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+	.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+	.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+	.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+	.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+	.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+	.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+	.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+	.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+	.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+	.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+	.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+	.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+	.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+	.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+	.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+	.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+	.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+	.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+	.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+	.highlight-default {
+		color: rgba(55, 53, 47, 1);
+	}
+	.highlight-gray {
+		color: rgba(120, 119, 116, 1);
+		fill: rgba(120, 119, 116, 1);
+	}
+	.highlight-brown {
+		color: rgba(159, 107, 83, 1);
+		fill: rgba(159, 107, 83, 1);
+	}
+	.highlight-orange {
+		color: rgba(217, 115, 13, 1);
+		fill: rgba(217, 115, 13, 1);
+	}
+	.highlight-yellow {
+		color: rgba(203, 145, 47, 1);
+		fill: rgba(203, 145, 47, 1);
+	}
+	.highlight-teal {
+		color: rgba(68, 131, 97, 1);
+		fill: rgba(68, 131, 97, 1);
+	}
+	.highlight-blue {
+		color: rgba(51, 126, 169, 1);
+		fill: rgba(51, 126, 169, 1);
+	}
+	.highlight-purple {
+		color: rgba(144, 101, 176, 1);
+		fill: rgba(144, 101, 176, 1);
+	}
+	.highlight-pink {
+		color: rgba(193, 76, 138, 1);
+		fill: rgba(193, 76, 138, 1);
+	}
+	.highlight-red {
+		color: rgba(212, 76, 71, 1);
+		fill: rgba(212, 76, 71, 1);
+	}
+	.highlight-gray_background {
+		background: rgba(241, 241, 239, 1);
+	}
+	.highlight-brown_background {
+		background: rgba(244, 238, 238, 1);
+	}
+	.highlight-orange_background {
+		background: rgba(251, 236, 221, 1);
+	}
+	.highlight-yellow_background {
+		background: rgba(251, 243, 219, 1);
+	}
+	.highlight-teal_background {
+		background: rgba(237, 243, 236, 1);
+	}
+	.highlight-blue_background {
+		background: rgba(231, 243, 248, 1);
+	}
+	.highlight-purple_background {
+		background: rgba(244, 240, 247, 0.8);
+	}
+	.highlight-pink_background {
+		background: rgba(249, 238, 243, 0.8);
+	}
+	.highlight-red_background {
+		background: rgba(253, 235, 236, 1);
+	}
+	.block-color-default {
+		color: inherit;
+		fill: inherit;
+	}
+	.block-color-gray {
+		color: rgba(120, 119, 116, 1);
+		fill: rgba(120, 119, 116, 1);
+	}
+	.block-color-brown {
+		color: rgba(159, 107, 83, 1);
+		fill: rgba(159, 107, 83, 1);
+	}
+	.block-color-orange {
+		color: rgba(217, 115, 13, 1);
+		fill: rgba(217, 115, 13, 1);
+	}
+	.block-color-yellow {
+		color: rgba(203, 145, 47, 1);
+		fill: rgba(203, 145, 47, 1);
+	}
+	.block-color-teal {
+		color: rgba(68, 131, 97, 1);
+		fill: rgba(68, 131, 97, 1);
+	}
+	.block-color-blue {
+		color: rgba(51, 126, 169, 1);
+		fill: rgba(51, 126, 169, 1);
+	}
+	.block-color-purple {
+		color: rgba(144, 101, 176, 1);
+		fill: rgba(144, 101, 176, 1);
+	}
+	.block-color-pink {
+		color: rgba(193, 76, 138, 1);
+		fill: rgba(193, 76, 138, 1);
+	}
+	.block-color-red {
+		color: rgba(212, 76, 71, 1);
+		fill: rgba(212, 76, 71, 1);
+	}
+	.block-color-gray_background {
+		background: rgba(241, 241, 239, 1);
+	}
+	.block-color-brown_background {
+		background: rgba(244, 238, 238, 1);
+	}
+	.block-color-orange_background {
+		background: rgba(251, 236, 221, 1);
+	}
+	.block-color-yellow_background {
+		background: rgba(251, 243, 219, 1);
+	}
+	.block-color-teal_background {
+		background: rgba(237, 243, 236, 1);
+	}
+	.block-color-blue_background {
+		background: rgba(231, 243, 248, 1);
+	}
+	.block-color-purple_background {
+		background: rgba(244, 240, 247, 0.8);
+	}
+	.block-color-pink_background {
+		background: rgba(249, 238, 243, 0.8);
+	}
+	.block-color-red_background {
+		background: rgba(253, 235, 236, 1);
+	}
+	.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+	.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+	.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+	.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+	.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+	.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+	.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+	.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+	.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+	.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+	
+	.checkbox {
+		display: inline-flex;
+		vertical-align: text-bottom;
+		width: 16;
+		height: 16;
+		background-size: 16px;
+		margin-left: 2px;
+		margin-right: 5px;
+	}
+	
+	.checkbox-on {
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+	}
+	
+	.checkbox-off {
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+	}
+		
+	</style></head><body><article id="9e196028-4e99-4de2-b700-4a4490acb888" class="page sans"><header><img class="page-cover-image" src="static/landing.png" style="object-position:center 50%"/><div class="page-header-icon undefined"><span class="icon">☁️</span></div><h1 class="page-title">Init Cloud 팀</h1></header><div class="page-body"><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4848d0b1-63a6-4898-9433-fb99e0646229"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Init Cloud는 2022년 8월, 모든 사람들이 안전하게 IaC를 구상할 수 있는 세상을 만들기 위해 구성되었습니다. Init Cloud는 안전하고 효율적인 IaC 관리를 위해 고민하는 전문가들과 함께합니다.</div></figure><div id="083b0c84-9192-4f66-90b3-ec49a81b0c2b" class="column-list"><div id="07f2222b-bbf3-46f5-88ff-294a3587d665" style="width:31.25%" class="column"><figure id="83bb4776-2937-4bc4-9309-b46c3291a694" class="image"><a href="static/resource_team/Untitled.jpeg"><img style="width:411px" src="static/resource_team/Untitled.jpeg"/></a></figure><figure id="8c52242f-797b-4fe8-8084-8b91c26702d2" class="image"><a href="static/resource_team/kitri_logo_Ko.jpg"><img style="width:1178px" src="static/resource_team/kitri_logo_Ko.jpg"/></a></figure></div><div id="41ceded8-9b33-417d-8ce5-71dc85bf9e95" style="width:68.75%" class="column"><p id="18373f38-582d-4ada-a5af-616f3a128522" class="">Init Cloud는 KITRI에서 주관하는 차세대 보안리더 양성 프로그램 Best of the Best 11기 프로젝트 팀에서 출발하여 현재 사업화 진행 중에 있습니다.</p><p id="af8e68d4-6cf6-4a8d-aadc-73175d9f9d2f" class="">
+	</p></div></div><p id="ff4a2c11-7815-4cbe-887b-8fa5a7ed1fd1" class="">
+	</p><h1 id="d8b43d4f-bb46-40bb-b5e4-1a8d96872977" class="block-color-blue_background">🏆Init Cloud 대외 협력/수상 이력</h1><p id="54249bb1-5d04-432e-8f80-e58ec7facb41" class="">부산정보산업진흥원, 더존비즈온, 카카오엔터프라이즈 주관 2022년 클라우드 아이디어 공모전 <strong>대상</strong></p><p id="da136f72-083d-4256-95ee-aaf6d26683b9" class="">광운대학교 SW 경진대회 <strong>우수상</strong></p><p id="ba0adedc-f918-4099-92dd-ff15244efcfd" class="">광운대학교 10회 창업보유투자유치경연회 <strong>장려상</strong></p><p id="ca7bd1fd-fe15-493a-b8bd-93e4e599df87" class="">해외 클라우드 보안기업 <strong>Bridgecrew</strong>와 협력</p><p id="ce7d00c3-3e83-4860-bcf2-ac15b582b33c" class=""><strong>Best of the Best(KITRI)</strong>에서 사업 지원, 멘토링 제공</p><p id="d3a0a361-6a17-4443-b5fe-06534762bfb2" class="">
+	</p><h1 id="469aed0a-21fd-43ba-9b04-5405b2fd037a" class="block-color-blue_background">🧑‍💻구성원</h1><div id="035cf947-a2c0-42af-8b47-21207b9219d4" class="column-list"><div id="13ef3720-3933-4a66-a940-75c3b71d275f" style="width:18.75%" class="column"><figure id="cdf270da-6fd5-4d76-b89c-f0ba0689d67f" class="image"><a href="static/resource_team/Untitled.png"><img style="width:189px" src="static/resource_team/Untitled.png"/></a></figure><p id="1cd760c2-7546-42b2-813b-66dc3e2f3f08" class="">
+	</p></div><div id="389d49cc-1b81-4930-a482-2c8cd31530e5" style="width:81.25%" class="column"><p id="35894e0f-56b9-4ee5-8e6b-998a6b6a9cde" class=""><strong>차유담</strong></p><p id="4bc33503-675c-4f1e-a223-e8efed8d4a0f" class="">Init Cloud 서비스 전략/기획</p><p id="7049f0f7-053d-4ea5-94e0-41058b3872e3" class="">Init Cloud 컴플라이언스 연구</p><p id="4d59e7fd-50cf-470e-ace1-9b346add9a21" class="">EY 한영 금융컨설팅 본부 사이버보안 인턴 4개월</p><p id="64ba7bcf-3019-4676-a9ac-01435be5bc9c" class="">KMAC 2021 경영혁신 논문 공모전 장려상</p><p id="8c953eb0-7339-4da7-84ca-6412c86d2728" class="">중앙대학교 산업보안학과 (2019.03~)</p><p id="3aaaddb7-1797-4f40-8fab-9888fdf14fdf" class="">
+	</p></div></div><div id="251b97bc-1cc6-427c-ab3c-a9dbfec38bc0" class="column-list"><div id="602e6cee-1754-4844-8ff2-56dd69ce59bf" style="width:20%" class="column"><figure id="55b47089-0f09-4140-a0f8-96e918c2ebe7" class="image"><a href="static/resource_team/Untitled%201.png"><img style="width:189px" src="static/resource_team/Untitled%201.png"/></a></figure></div><div id="98ab082d-0966-4ddf-b230-2dd41fa104c5" style="width:20%" class="column"><figure id="54319c14-bb3f-4482-b30f-94fbb61a191b" class="image"><a href="static/resource_team/Untitled%202.png"><img style="width:189px" src="static/resource_team/Untitled%202.png"/></a></figure></div><div id="8b3e51d9-1bb0-4f90-8682-aaaedd60bb20" style="width:20%" class="column"><figure id="ebe3e72f-c208-480b-8446-f733ee765411" class="image"><a href="static/resource_team/Untitled%203.png"><img style="width:189px" src="static/resource_team/Untitled%203.png"/></a></figure></div><div id="591bdbea-80b0-4540-a8d0-eb756f987e13" style="width:20%" class="column"><figure id="f1955550-35cc-4e4f-b1f8-130abf4ad007" class="image"><a href="static/resource_team/Untitled%204.png"><img style="width:189px" src="static/resource_team/Untitled%204.png"/></a></figure></div><div id="b4f6acc4-ca16-4111-b4fc-449d0c22a858" style="width:20%" class="column"><figure id="5d477bfd-afdb-4259-b072-25d226d8ba5c" class="image"><a href="static/resource_team/Untitled%205.png"><img style="width:189px" src="static/resource_team/Untitled%205.png"/></a></figure></div></div><div id="60037660-2841-4239-a8a9-f73d030c512a" class="column-list"><div id="30fb5bee-c2e3-4d3a-8b64-9226a08315e9" style="width:20%" class="column"><p id="6e56d88d-92ca-4d62-95a8-5cc78ad64cbb" class=""><strong>박병제</strong></p><p id="7e50a35e-bfbd-4ea2-9847-c0a13dbe921f" class="">Init Cloud Rule Research
+	Init Cloud 서비스 전략/기획</p></div><div id="932dff94-fb50-49f3-bfa7-4e20977c37f1" style="width:20%" class="column"><p id="33cb34be-c39f-4a5e-b023-bcc8a3f5c819" class=""><strong>임태인</strong></p><p id="cf711ecb-2656-41d4-87d5-434757478987" class="">Init Cloud FE Developer
+	Init Cloud 서비스 전략/기획</p></div><div id="15774d00-0786-4d10-86d7-b9366e6733d1" style="width:20%" class="column"><p id="eb0b1c61-3bf1-42a0-85c1-84769695be7b" class=""><strong>이본영</strong></p><p id="4c019b8d-2992-4547-a728-8486503b2b5b" class="">Init Cloud FE Developer</p></div><div id="b7738063-6e21-4a74-b474-b0a01e0ffda9" style="width:20%" class="column"><p id="38e8b4c6-f984-471e-a68b-436270342a1e" class=""><strong>정금종</strong></p><p id="7beb74aa-b0e9-472d-973e-3f052a7f07c5" class="">Init Cloud BE Developer</p></div><div id="93e5076d-6d3a-4393-8535-4a940be7f616" style="width:20%" class="column"><p id="385597f2-3c11-47e2-b827-069b6d79847b" class=""><strong>최영해</strong></p><p id="e3dc4020-051d-4822-b90d-0eb9611b4625" class="">Init Cloud BE Developer</p></div></div><p id="17c6abc5-4240-4706-9f69-69c872c47ea6" class="">
+	</p><h1 id="aa33ee13-3447-40b9-afed-e481944ee4a6" class="block-color-blue_background">✉️Contact</h1><p id="b33f2712-c612-405b-a24a-382293673c2b" class="">서비스를 이용해보고 싶거나 궁금한 점이 있으면 아래 연락처로 문의 주시면 감사하겠습니다.</p><p id="913cfa74-1b80-477f-9603-c960e0b77e21" class="">
+	</p><p id="bfa340b8-1f38-4645-8976-ea03da6c4d3d" class="">Kakao: </p><figure id="99e89bb0-113c-4527-a98b-b3467ca6ae8e"><a href="https://open.kakao.com/o/stcmPNWe" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Init Cloud</div></div><div class="bookmark-href"><img src="https://iopen.kakaocdn.net/favicon.ico" class="icon bookmark-icon"/>https://open.kakao.com/o/stcmPNWe</div></div><img src="https://iopen.kakaocdn.net/img/og/v1/ko_scrap_sv_05.png" class="bookmark-image"/></a></figure><p id="027acb75-a8f5-4931-b119-7d4580090fe8" class="">
+	</p></div></article></body></html>

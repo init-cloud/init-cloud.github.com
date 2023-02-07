@@ -1,0 +1,678 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Init Cloud가 제공하는 서비스</title><meta content="https://www.initcloud.works/introduce/static/landing.png" property="og:image"/><style>
+	/* cspell:disable-file */
+	/* webkit printing magic: print all background colors */
+	html {
+		-webkit-print-color-adjust: exact;
+	}
+	* {
+		box-sizing: border-box;
+		-webkit-print-color-adjust: exact;
+	}
+	
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	@media only screen {
+		body {
+			margin: 2em auto;
+			max-width: 900px;
+			color: rgb(55, 53, 47);
+		}
+	}
+	
+	body {
+		line-height: 1.5;
+		white-space: pre-wrap;
+	}
+	
+	a,
+	a.visited {
+		color: inherit;
+		text-decoration: underline;
+	}
+	
+	.pdf-relative-link-path {
+		font-size: 80%;
+		color: #444;
+	}
+	
+	h1,
+	h2,
+	h3 {
+		letter-spacing: -0.01em;
+		line-height: 1.2;
+		font-weight: 600;
+		margin-bottom: 0;
+	}
+	
+	.page-title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		margin-top: 0;
+		margin-bottom: 0.75em;
+	}
+	
+	h1 {
+		font-size: 1.875rem;
+		margin-top: 1.875rem;
+	}
+	
+	h2 {
+		font-size: 1.5rem;
+		margin-top: 1.5rem;
+	}
+	
+	h3 {
+		font-size: 1.25rem;
+		margin-top: 1.25rem;
+	}
+	
+	.source {
+		border: 1px solid #ddd;
+		border-radius: 3px;
+		padding: 1.5em;
+		word-break: break-all;
+	}
+	
+	.callout {
+		border-radius: 3px;
+		padding: 1rem;
+	}
+	
+	figure {
+		margin: 1.25em 0;
+		page-break-inside: avoid;
+	}
+	
+	figcaption {
+		opacity: 0.5;
+		font-size: 85%;
+		margin-top: 0.5em;
+	}
+	
+	mark {
+		background-color: transparent;
+	}
+	
+	.indented {
+		padding-left: 1.5em;
+	}
+	
+	hr {
+		background: transparent;
+		display: block;
+		width: 100%;
+		height: 1px;
+		visibility: visible;
+		border: none;
+		border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+	}
+	
+	img {
+		max-width: 100%;
+	}
+	
+	@media only print {
+		img {
+			max-height: 100vh;
+			object-fit: contain;
+		}
+	}
+	
+	@page {
+		margin: 1in;
+	}
+	
+	.collection-content {
+		font-size: 0.875rem;
+	}
+	
+	.column-list {
+		display: flex;
+		justify-content: space-between;
+	}
+	
+	.column {
+		padding: 0 1em;
+	}
+	
+	.column:first-child {
+		padding-left: 0;
+	}
+	
+	.column:last-child {
+		padding-right: 0;
+	}
+	
+	.table_of_contents-item {
+		display: block;
+		font-size: 0.875rem;
+		line-height: 1.3;
+		padding: 0.125rem;
+	}
+	
+	.table_of_contents-indent-1 {
+		margin-left: 1.5rem;
+	}
+	
+	.table_of_contents-indent-2 {
+		margin-left: 3rem;
+	}
+	
+	.table_of_contents-indent-3 {
+		margin-left: 4.5rem;
+	}
+	
+	.table_of_contents-link {
+		text-decoration: none;
+		opacity: 0.7;
+		border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+	}
+	
+	table,
+	th,
+	td {
+		border: 1px solid rgba(55, 53, 47, 0.09);
+		border-collapse: collapse;
+	}
+	
+	table {
+		border-left: none;
+		border-right: none;
+	}
+	
+	th,
+	td {
+		font-weight: normal;
+		padding: 0.25em 0.5em;
+		line-height: 1.5;
+		min-height: 1.5em;
+		text-align: left;
+	}
+	
+	th {
+		color: rgba(55, 53, 47, 0.6);
+	}
+	
+	ol,
+	ul {
+		margin: 0;
+		margin-block-start: 0.6em;
+		margin-block-end: 0.6em;
+	}
+	
+	li > ol:first-child,
+	li > ul:first-child {
+		margin-block-start: 0.6em;
+	}
+	
+	ul > li {
+		list-style: disc;
+	}
+	
+	ul.to-do-list {
+		text-indent: -1.7em;
+	}
+	
+	ul.to-do-list > li {
+		list-style: none;
+	}
+	
+	.to-do-children-checked {
+		text-decoration: line-through;
+		opacity: 0.375;
+	}
+	
+	ul.toggle > li {
+		list-style: none;
+	}
+	
+	ul {
+		padding-inline-start: 1.7em;
+	}
+	
+	ul > li {
+		padding-left: 0.1em;
+	}
+	
+	ol {
+		padding-inline-start: 1.6em;
+	}
+	
+	ol > li {
+		padding-left: 0.2em;
+	}
+	
+	.mono ol {
+		padding-inline-start: 2em;
+	}
+	
+	.mono ol > li {
+		text-indent: -0.4em;
+	}
+	
+	.toggle {
+		padding-inline-start: 0em;
+		list-style-type: none;
+	}
+	
+	/* Indent toggle children */
+	.toggle > li > details {
+		padding-left: 1.7em;
+	}
+	
+	.toggle > li > details > summary {
+		margin-left: -1.1em;
+	}
+	
+	.selected-value {
+		display: inline-block;
+		padding: 0 0.5em;
+		background: rgba(206, 205, 202, 0.5);
+		border-radius: 3px;
+		margin-right: 0.5em;
+		margin-top: 0.3em;
+		margin-bottom: 0.3em;
+		white-space: nowrap;
+	}
+	
+	.collection-title {
+		display: inline-block;
+		margin-right: 1em;
+	}
+	
+	.simple-table {
+		margin-top: 1em;
+		font-size: 0.875rem;
+		empty-cells: show;
+	}
+	.simple-table td {
+		height: 29px;
+		min-width: 120px;
+	}
+	
+	.simple-table th {
+		height: 29px;
+		min-width: 120px;
+	}
+	
+	.simple-table-header-color {
+		background: rgb(247, 246, 243);
+		color: black;
+	}
+	.simple-table-header {
+		font-weight: 500;
+	}
+	
+	time {
+		opacity: 0.5;
+	}
+	
+	.icon {
+		display: inline-block;
+		max-width: 1.2em;
+		max-height: 1.2em;
+		text-decoration: none;
+		vertical-align: text-bottom;
+		margin-right: 0.5em;
+	}
+	
+	img.icon {
+		border-radius: 3px;
+	}
+	
+	.user-icon {
+		width: 1.5em;
+		height: 1.5em;
+		border-radius: 100%;
+		margin-right: 0.5rem;
+	}
+	
+	.user-icon-inner {
+		font-size: 0.8em;
+	}
+	
+	.text-icon {
+		border: 1px solid #000;
+		text-align: center;
+	}
+	
+	.page-cover-image {
+		display: block;
+		object-fit: cover;
+		width: 100%;
+		max-height: 30vh;
+	}
+	
+	.page-header-icon {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+	}
+	
+	.page-header-icon-with-cover {
+		margin-top: -0.72em;
+		margin-left: 0.07em;
+	}
+	
+	.page-header-icon img {
+		border-radius: 3px;
+	}
+	
+	.link-to-page {
+		margin: 1em 0;
+		padding: 0;
+		border: none;
+		font-weight: 500;
+	}
+	
+	p > .user {
+		opacity: 0.5;
+	}
+	
+	td > .user,
+	td > time {
+		white-space: nowrap;
+	}
+	
+	input[type="checkbox"] {
+		transform: scale(1.5);
+		margin-right: 0.6em;
+		vertical-align: middle;
+	}
+	
+	p {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+	
+	.image {
+		border: none;
+		margin: 1.5em 0;
+		padding: 0;
+		border-radius: 0;
+		text-align: center;
+	}
+	
+	.code,
+	code {
+		background: rgba(135, 131, 120, 0.15);
+		border-radius: 3px;
+		padding: 0.2em 0.4em;
+		border-radius: 3px;
+		font-size: 85%;
+		tab-size: 2;
+	}
+	
+	code {
+		color: #eb5757;
+	}
+	
+	.code {
+		padding: 1.5em 1em;
+	}
+	
+	.code-wrap {
+		white-space: pre-wrap;
+		word-break: break-all;
+	}
+	
+	.code > code {
+		background: none;
+		padding: 0;
+		font-size: 100%;
+		color: inherit;
+	}
+	
+	blockquote {
+		font-size: 1.25em;
+		margin: 1em 0;
+		padding-left: 1em;
+		border-left: 3px solid rgb(55, 53, 47);
+	}
+	
+	.bookmark {
+		text-decoration: none;
+		max-height: 8em;
+		padding: 0;
+		display: flex;
+		width: 100%;
+		align-items: stretch;
+	}
+	
+	.bookmark-title {
+		font-size: 0.85em;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		height: 1.75em;
+		white-space: nowrap;
+	}
+	
+	.bookmark-text {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	.bookmark-info {
+		flex: 4 1 180px;
+		padding: 12px 14px 14px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+	
+	.bookmark-image {
+		width: 33%;
+		flex: 1 1 180px;
+		display: block;
+		position: relative;
+		object-fit: cover;
+		border-radius: 1px;
+	}
+	
+	.bookmark-description {
+		color: rgba(55, 53, 47, 0.6);
+		font-size: 0.75em;
+		overflow: hidden;
+		max-height: 4.5em;
+		word-break: break-word;
+	}
+	
+	.bookmark-href {
+		font-size: 0.75em;
+		margin-top: 0.25em;
+	}
+	
+	.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+	.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+	.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+	.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+	.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+	.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+	.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+	.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+	.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+	.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+	.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+	.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+	.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+	.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+	.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+	.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+	.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+	.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+	.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+	.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+	.highlight-default {
+		color: rgba(55, 53, 47, 1);
+	}
+	.highlight-gray {
+		color: rgba(120, 119, 116, 1);
+		fill: rgba(120, 119, 116, 1);
+	}
+	.highlight-brown {
+		color: rgba(159, 107, 83, 1);
+		fill: rgba(159, 107, 83, 1);
+	}
+	.highlight-orange {
+		color: rgba(217, 115, 13, 1);
+		fill: rgba(217, 115, 13, 1);
+	}
+	.highlight-yellow {
+		color: rgba(203, 145, 47, 1);
+		fill: rgba(203, 145, 47, 1);
+	}
+	.highlight-teal {
+		color: rgba(68, 131, 97, 1);
+		fill: rgba(68, 131, 97, 1);
+	}
+	.highlight-blue {
+		color: rgba(51, 126, 169, 1);
+		fill: rgba(51, 126, 169, 1);
+	}
+	.highlight-purple {
+		color: rgba(144, 101, 176, 1);
+		fill: rgba(144, 101, 176, 1);
+	}
+	.highlight-pink {
+		color: rgba(193, 76, 138, 1);
+		fill: rgba(193, 76, 138, 1);
+	}
+	.highlight-red {
+		color: rgba(212, 76, 71, 1);
+		fill: rgba(212, 76, 71, 1);
+	}
+	.highlight-gray_background {
+		background: rgba(241, 241, 239, 1);
+	}
+	.highlight-brown_background {
+		background: rgba(244, 238, 238, 1);
+	}
+	.highlight-orange_background {
+		background: rgba(251, 236, 221, 1);
+	}
+	.highlight-yellow_background {
+		background: rgba(251, 243, 219, 1);
+	}
+	.highlight-teal_background {
+		background: rgba(237, 243, 236, 1);
+	}
+	.highlight-blue_background {
+		background: rgba(231, 243, 248, 1);
+	}
+	.highlight-purple_background {
+		background: rgba(244, 240, 247, 0.8);
+	}
+	.highlight-pink_background {
+		background: rgba(249, 238, 243, 0.8);
+	}
+	.highlight-red_background {
+		background: rgba(253, 235, 236, 1);
+	}
+	.block-color-default {
+		color: inherit;
+		fill: inherit;
+	}
+	.block-color-gray {
+		color: rgba(120, 119, 116, 1);
+		fill: rgba(120, 119, 116, 1);
+	}
+	.block-color-brown {
+		color: rgba(159, 107, 83, 1);
+		fill: rgba(159, 107, 83, 1);
+	}
+	.block-color-orange {
+		color: rgba(217, 115, 13, 1);
+		fill: rgba(217, 115, 13, 1);
+	}
+	.block-color-yellow {
+		color: rgba(203, 145, 47, 1);
+		fill: rgba(203, 145, 47, 1);
+	}
+	.block-color-teal {
+		color: rgba(68, 131, 97, 1);
+		fill: rgba(68, 131, 97, 1);
+	}
+	.block-color-blue {
+		color: rgba(51, 126, 169, 1);
+		fill: rgba(51, 126, 169, 1);
+	}
+	.block-color-purple {
+		color: rgba(144, 101, 176, 1);
+		fill: rgba(144, 101, 176, 1);
+	}
+	.block-color-pink {
+		color: rgba(193, 76, 138, 1);
+		fill: rgba(193, 76, 138, 1);
+	}
+	.block-color-red {
+		color: rgba(212, 76, 71, 1);
+		fill: rgba(212, 76, 71, 1);
+	}
+	.block-color-gray_background {
+		background: rgba(241, 241, 239, 1);
+	}
+	.block-color-brown_background {
+		background: rgba(244, 238, 238, 1);
+	}
+	.block-color-orange_background {
+		background: rgba(251, 236, 221, 1);
+	}
+	.block-color-yellow_background {
+		background: rgba(251, 243, 219, 1);
+	}
+	.block-color-teal_background {
+		background: rgba(237, 243, 236, 1);
+	}
+	.block-color-blue_background {
+		background: rgba(231, 243, 248, 1);
+	}
+	.block-color-purple_background {
+		background: rgba(244, 240, 247, 0.8);
+	}
+	.block-color-pink_background {
+		background: rgba(249, 238, 243, 0.8);
+	}
+	.block-color-red_background {
+		background: rgba(253, 235, 236, 1);
+	}
+	.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+	.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+	.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+	.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+	.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+	.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+	.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+	.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+	.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+	.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+	
+	.checkbox {
+		display: inline-flex;
+		vertical-align: text-bottom;
+		width: 16;
+		height: 16;
+		background-size: 16px;
+		margin-left: 2px;
+		margin-right: 5px;
+	}
+	
+	.checkbox-on {
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+	}
+	
+	.checkbox-off {
+		background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+	}
+		
+	</style></head><body><article id="c9f58481-b5a1-43fe-85c6-18f56fdb1d3f" class="page sans"><header><img class="page-cover-image" src="static/landing.png" style="object-position:center 50%"/><div class="page-header-icon undefined"><span class="icon">💡</span></div><h1 class="page-title">Init Cloud가 제공하는 서비스</h1></header><div class="page-body"><p id="166096bd-f69c-4594-b0ba-d72c27988ef0" class="">
+	</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="abd63d48-fc29-4930-8fee-6d3d796a5ac7"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">현재 Init Cloud는 IaC 보안 서비스 제공에 집중하고 있습니다.</div></figure><p id="b2527efc-7186-455c-a92c-0d87f4732930" class="">
+	</p><p id="29d0c912-d0bf-4fc0-8624-e774110169a8" class="">클라우드 시장 규모의 증가에 따라 클라우드 보안 문제도 함께 발생하고 있습니다. </p><p id="075265c9-fb23-4a2d-9bb1-a0e2614ca5ca" class="">보안사고의 95%는 사용자의 설정 오류로 인한 문제입니다. 그렇기 때문에 보안사고의 책임은 사용자가 지게됩니다. </p><p id="18607ccd-26ac-4218-ba25-9431a5083338" class="">클라우드 인프라를 쉽게 관리할 수 있는 IaC가 등장했지만, IaC를 안전하게 관리할 수 있는 매뉴얼이 존재하지 않는 상황입니다.</p><p id="a11847b2-7bf0-465a-9920-8ce528d86f73" class="block-color-gray_background"><strong>Init Cloud</strong>는 인프라 관리자가 <strong><mark class="highlight-blue_background">안전한 인프라를 효율적으로 관리</mark></strong>할 수 있는 서비스를 제공합니다. 또한 기업에서는 <strong><mark class="highlight-blue_background">인프라에 대한 효율적인 컴플라이언스 준수</mark></strong>가 가능할 것입니다.</p><p id="5e7b9674-9658-4bd1-b175-43192564e008" class="">
+	</p><p id="19a57c29-f03c-4c96-affd-f5d668b53af0" class="">Init Cloud가 제공하고 있는 서비스는 다음과 같습니다.</p><h3 id="56a6a3cd-f68c-45ec-b320-898e5fb2d998" class="block-color-blue_background"><span style="border-bottom:0.05em solid"><strong>IaC(Terraform) 보안위협 스캔</strong></span></h3><ol type="1" id="1c2978c6-4df0-4ea6-bc01-428a2037c496" class="numbered-list" start="1"><li>업로드 한 아키텍처와 보안위협을 시각화</li></ol><ol type="1" id="084341fc-0b18-48c0-889d-c3d898066fa6" class="numbered-list" start="2"><li>스캔에 대한 결과를 시각화한 부분과 하단에서 확인이 가능함</li></ol><figure id="864ae21e-5897-4aa8-af20-8535441563cf" class="image"><a href="static/resource_service/Untitled.png"><img style="width:1920px" src="static/resource_service/Untitled.png"/></a></figure><p id="10b8ebde-2654-48d6-9600-a8b0b1f97476" class="">
+	</p><h3 id="e0c27dda-4fbd-47ef-8627-a1b342022611" class="block-color-blue_background"><span style="border-bottom:0.05em solid"><strong>스캔 체크리스트 확인</strong></span></h3><ol type="1" id="2b58d709-eacc-48ba-9c03-3f7c59cb09f8" class="numbered-list" start="1"><li>룰에 대한 상세한 내용 확인 가능</li></ol><ol type="1" id="14550463-c8b1-473d-a7e7-53f554155b6f" class="numbered-list" start="2"><li>사용자 맞춤 룰 수정이 가능하며 스캔에 반영됨</li></ol><ol type="1" id="7fe8deb1-9d43-41a0-9fdf-8e5fc5360050" class="numbered-list" start="3"><li>아키텍처 상에서 발생 가능한 보안오류와 IaC 상에서 발생 가능한 보안오류 점검</li></ol><figure id="12fb4779-faef-4fdc-b48b-cfed1128ec50" class="image"><a href="static/resource_service/Untitled%201.png"><img style="width:1920px" src="static/resource_service/Untitled%201.png"/></a></figure><p id="37ab37c0-48fe-43d1-aef6-df5e67b19be7" class="">
+	</p><h3 id="5db9c9fb-cae9-4d1a-ad89-c9fedfa7eb24" class="block-color-blue_background"><span style="border-bottom:0.05em solid"><strong>리포트 제공</strong></span></h3><ol type="1" id="96eed775-6165-488b-9bcd-f206cb3024e8" class="numbered-list" start="1"><li>스캔 기록 중 원하는 스캔결과에 대한 리포트 제공</li></ol><ol type="1" id="b0e1c4b7-e79a-44ce-9669-3b302e646349" class="numbered-list" start="2"><li>사용자가 원하는 형태의 리포트를 제공받음</li></ol><ol type="1" id="6b4accf6-63d8-4d7a-b77d-a938d2653603" class="numbered-list" start="3"><li>각 룰에 해당하는 컴플라이언스 항목(현재 ISMS-P 지원)을 제공하고 문제가 되는 이유를 고지함</li></ol><figure id="cadcd774-6dce-4ba6-8361-3749f7adfdc5" class="image"><a href="static/resource_service/Untitled%202.png"><img style="width:1920px" src="static/resource_service/Untitled%202.png"/></a></figure><div id="d606f862-05c1-46e7-8eac-05ad15992e37" class="column-list"><div id="b8fe69c9-0def-4b09-8ef6-b3cd656b0c44" style="width:50%" class="column"><figure id="497c4c9e-da23-4fce-bf9f-719f6b260975" class="image"><a href="static/resource_service/Untitled%203.png"><img style="width:1102px" src="static/resource_service/Untitled%203.png"/></a></figure></div><div id="65a91630-d0e4-4712-a4c1-c5d6bcd6b96e" style="width:50%" class="column"><figure id="95ae7cdb-518f-4adb-8373-6cae36f8b333" class="image"><a href="static/resource_service/Untitled%204.png"><img style="width:1099px" src="static/resource_service/Untitled%204.png"/></a></figure></div></div><p id="e8e0a09d-c973-4e65-9106-b2ef96b478c1" class="">
+	</p><h1 id="3e95b292-32a7-4155-8d2e-a77bfb9dc44f" class="block-color-yellow_background">Init Cloud의 특장점</h1><ol type="1" id="1e058db1-c36e-48ba-a2cc-5e8d7d910795" class="block-color-blue_background numbered-list" start="1"><li><strong>IaC 특화 보안 서비스를 제공합니다.</strong></li></ol><p id="963cbcaa-6f59-40eb-81f2-a10f00906ffa" class="">현재 시장에서는 클라우드에서 발생할 수 있는 보안위협을 점검하는 서비스들이 존재합니다. 하지만 Init Cloud는 기존에 시장에서 지원하는 보안위협 점검 서비스에 더해서 <span style="border-bottom:0.05em solid"><strong>IaC, 즉 코드이기에 발생하는 보안위협 점검을 지원</strong></span>합니다.</p><p id="c14e3113-9b81-417c-a844-3ddf75708c42" class="">
+	</p><ol type="1" id="9432dc23-b222-4846-ae0d-f991b3632c27" class="block-color-blue_background numbered-list" start="2"><li><strong>국내 컴플라이언스를 지원합니다.</strong></li></ol><p id="796830c4-1418-4fe9-a5a2-91e7928b16d2" class="">국내에는 IaC 보안위협을 점검하는 서비스가 존재하지 않습니다. 해외의 서비스의 경우에는 국내 컴플라이언스를 지원하지 않습니다. Init Cloud에서는 IaC 보안위협을 점검하며 이에 대한<span style="border-bottom:0.05em solid"><strong> 국내 컴플라이언스(ISMS-P(지원 중), CSAP(예정) 등)를 지원하여 컴플라이언스 인증 시 비용 절약</strong></span>을 도울 수 있습니다.</p><p id="2252c81a-6337-4ed6-8ffb-ed9051f04fe3" class="">
+	</p><ol type="1" id="85acf1fb-cfb6-4a79-96e5-e6dd69ab313c" class="block-color-blue_background numbered-list" start="3"><li><strong>효율적인 IaC 관리가 가능합니다.</strong></li></ol><p id="afa8ed44-f8e6-4e4d-9c6b-a6a4b1874c49" class=""><span style="border-bottom:0.05em solid"><strong>Init Cloud는 효율적인 IaC 협업 관리를 지향합니다.</strong></span> 기존에 존재하는 Git, Jenkins 등의 CI/CD 툴은 다양한 코드에 대한 관리를 지원하기 때문에 IaC를 적용하기에 어려움이 존재합니다. Init Cloud는 IaC만을 위한 접근권한 관리, 히스토리 관리, 보안위협 관리를 지원합니다.</p><p id="2fc4b333-c2da-4f14-a95f-5ac89df529f9" class="">
+	</p></div></article></body></html>
