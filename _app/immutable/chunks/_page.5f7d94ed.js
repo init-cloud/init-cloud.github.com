@@ -1,0 +1,1 @@
+import{a as t}from"./inquiries.7750480f.js";import{R as o}from"./control.e7f5239e.js";function n(e,r){return new o(e,r)}new TextEncoder;const l=({params:e})=>{if(e&&t.includes(e.slug))return{slug:e.slug};throw n(302,"/")},u=!0,c=Object.freeze(Object.defineProperty({__proto__:null,load:l,prerender:u},Symbol.toStringTag,{value:"Module"}));export{c as _,l,u as p};
